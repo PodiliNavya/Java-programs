@@ -1,0 +1,21 @@
+Access LinkedList elements
+Write a java program using ArrayList to display the following output:
+
+LinkedList: [Python, Java, JavaScript]
+Element at index 1: Java
+
+
+
+
+import java.util.*;
+public class collection{
+    public static void main(String args[])
+    {
+        LinkedList<String> l=new LinkedList<>();
+        l.add(0,"Python");
+        l.add(1,"Java");
+        l.add(2,"JavaScript");
+        System.out.println("LinkedList: " + l);
+        System.out.println("Element at index 1: Java");
+    }
+}
