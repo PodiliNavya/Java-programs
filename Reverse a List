@@ -1,0 +1,70 @@
+Reverse a List
+Write a program to get number of values from user until user enter a negative value and store those values in doubly linked list implementation and Print it in reverse order.
+Hint: First create a inner class to define the structure of node. Second create a method called "append()" to insert the values to the list and link the nodes. Third create a print method to print the values in list.
+Input Format:
+Get input value as integer until user enters a negative value.
+Output Format:
+Print all list values.
+Sample Input:
+1
+2
+3
+4
+-1
+Sample Output:
+4 3 2 1 
+
+
+import java.util.Scanner;
+
+public class Main {
+    static Scanner sc = new Scanner(System.in);
+    static DoublyLinkedList list = new DoublyLinkedList();
+
+    public static void main(String[] args) {
+        int value;
+        value = sc.nextInt();
+
+        while (value >= 0) {
+            list.append(value);
+            value = sc.nextInt();
+        }
+
+        list.printListReverse();
+    }
+}
+
+class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+    class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.prev = null;
+            this.next = null;
+        }
+    }
+    public void append(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+    public void printListReverse() {
+        Node current = tail;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        }
+        System.out.println();
+    }
+}
