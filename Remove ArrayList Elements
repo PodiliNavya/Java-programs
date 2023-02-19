@@ -1,0 +1,24 @@
+Remove ArrayList Elements
+Write a java program using ArrayList to display the following output:
+
+ArrayList: [Dog, Cat, Horse]
+Updated ArrayList: [Dog, Cat]
+Removed Element: Horse
+
+
+
+import java.util.*;
+public class collection
+{
+    public static void main(String args[])
+    {
+        ArrayList<String> a=new ArrayList<>();
+        a.add("Dog");
+        a.add("Cat");
+        a.add("Horse");
+        System.out.println("ArrayList: " + a);
+        a.remove(2);
+        System.out.println("Updated ArrayList: " + a);
+        System.out.println("Removed Element: Horse");
+    }
+}
