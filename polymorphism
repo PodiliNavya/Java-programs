@@ -1,0 +1,100 @@
+polymorphism
+Bread Butter Jam Fuji likes bread so much. She eats bread daily. She eats bread with butter and jam or sometimes jam alone. Rarely she eats bread alone. 
+But she wants to know which gives her more energy. So she want to calculate how much energy she gains from the bread that she eats. Help her in finding the amount of
+energy gained from given calories. 1 kcal = 4.1868 kJ Bread = 74 calories Butter = 102 calories Jam = 26 calories Write a program to calculate the energy and implement
+it using Method overloading concept. Print energy with three decimal places. Method Overloading is a feature that allows a class to have two or more methods having 
+same name, but their arguments type or the return type of the method or the number of arguments are different. Create two class namely, Main and Calories. Get all 
+details in Main class. Include a method called,calculateCalories() which is overloaded three times. First calculateCalories() is to calculate the calorie when she eats
+only bread. Second calculateCalories() is to calculate the calorie when she eats bread and jam. Third calculateCalories() is to calculate the calorie when she eats 
+bread, butter and Jam. Include a method called returnCalories() that returns the calculated calories. Include a method called calculateEnergy() that calculates the 
+energy and returns the energy value.
+
+Sample input and output 1:
+1.Bread only
+2.Bread+Jam
+3.Bread+Jam+Butter
+Enter the choice
+2
+Enter the number of Slice of bread
+2
+Enter the number of teaspoon of Jam
+4
+1055.074 kJ of energy generated from 252.0 calories
+Sample input and output 2:
+1.Bread only
+2.Bread+Jam
+3.Bread+Jam+Butter
+Enter the choice
+1
+Enter the number of Slice of bread
+2
+619.646 kJ of energy generated from 148.0 calories
+Sample input and output 3:
+1.Bread only
+2.Bread+Jam
+3.Bread+Jam+Butter
+Enter the choice
+3
+Enter the number of Slice of bread
+3
+Enter the number of teaspoon of Jam
+4
+Enter the number of teaspoon of Butter
+6
+3927.219 kJ of energy generated from 938.0 calories
+
+
+
+import java.util.Scanner;
+
+class Polymorphism{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1.Bread only");
+        System.out.println("2.Bread+Jam");
+        System.out.println("3.Bread+Jam+Butter");
+        System.out.print("Enter the choice: ");
+        int choice = sc.nextInt();
+        System.out.print("Enter the number of Slice of bread: ");
+        int bread = sc.nextInt();
+        Calories obj = new Calories();
+        if (choice == 1) {
+            obj.calculateCalories(bread);
+        } else if (choice == 2) {
+            System.out.print("Enter the number of teaspoon of Jam: ");
+            int jam = sc.nextInt();
+            obj.calculateCalories(bread, jam);
+        } else if (choice == 3) {
+            System.out.print("Enter the number of teaspoon of Jam: ");
+            int jam = sc.nextInt();
+            System.out.print("Enter the number of teaspoon of Butter: ");
+            int butter = sc.nextInt();
+            obj.calculateCalories(bread, jam, butter);
+        }
+        System.out.printf("%.3f kJ of energy generated from %.1f calories", obj.calculateEnergy(), obj.returnCalories());
+    }
+}
+
+class Calories {
+    private double calories;
+
+    public void calculateCalories(int bread) {
+        this.calories = 74 * bread;
+    }
+
+    public void calculateCalories(int bread, int jam) {
+        this.calories = 74 * bread + 26 * jam;
+    }
+
+    public void calculateCalories(int bread, int jam, int butter) {
+        this.calories = 74 * bread + 26 * jam + 102 * butter;
+    }
+
+    public double returnCalories() {
+        return this.calories;
+    }
+
+    public double calculateEnergy() {
+        return this.calories * 4.1868;
+    }
+}
