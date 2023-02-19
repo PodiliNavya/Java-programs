@@ -1,0 +1,26 @@
+Iterate through an ArrayList
+Write a java program using ArrayList to display the following output:
+
+ArrayList: [Cow, Cat, Dog]
+Accessing individual elements:  
+Cow, Cat, Dog,
+
+
+
+import java.util.*;
+public class collection
+{
+    public static void main(String args[])
+    {
+        ArrayList<String> a=new ArrayList<>();
+        a.add("Cow");
+        a.add("Cat");
+        a.add("Dog");
+        System.out.println("ArrayList: " + a);
+        System.out.println("Accessing individual elements: ");
+        for(String animal:a)
+        {
+            System.out.print(animal +", ");
+        }
+    }
+}
