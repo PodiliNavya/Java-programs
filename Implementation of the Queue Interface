@@ -1,0 +1,27 @@
+Implementation of the Queue Interface
+Write a java program using the collection to display the following output:
+Methods: 
+Sample Output: 
+Queue: [1, 2, 3]
+Accessed Element: 1
+Removed Element: 1
+Updated Queue: [2, 3]
+
+
+
+import java.util.*;
+public class Main{
+    public static void main(String args[])
+    {
+        Queue<Integer> q=new LinkedList<>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        System.out.println("Queue: " + q);
+        int a=q.peek();
+        System.out.println("Accessed Element: " + a);
+        int r=q.remove();
+        System.out.println("Removed Element: " + r);
+        System.out.println("Updated Queue: " + q);
+    }
+}
